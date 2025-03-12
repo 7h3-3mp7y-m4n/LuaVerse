@@ -1,0 +1,10 @@
+{{define "notifications.html"}}
+  {{range .}}
+    <div class="card">
+      <strong>{{.Repository.FullName}}</strong><br/>
+      {{.Subject.Title}} ({{.Subject.Type}}) — {{.Reason}}
+    </div>
+  {{else}}
+    <p>No notifications found.</p>
+  {{end}}
+{{end}}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GitHub Notifications</title>
+  <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background-color: #f0f0f0;
+    }
+    button {
+      background-color: #333;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #555;
+    }
+    h1 {
+      margin-bottom: 1.5rem;
+    }
+    #notifs {
+      margin-top: 2rem;
+    }
+    .card {
+      background: white;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>GitHub Notifications</h1>
+
+  <button 
+    hx-get="/notifications" 
+    hx-target="#notifs" 
+    hx-swap="innerHTML">
+    Refresh Notifications
+  </button>
+
+  <div id="notifs">
+    {{template "notifications.html" .}}
+  </div>
+</body>
+</html>
