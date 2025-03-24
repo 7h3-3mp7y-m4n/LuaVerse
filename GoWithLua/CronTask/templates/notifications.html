@@ -1,8 +1,9 @@
-{{define "notifications.html"}}
+{{define "notifications"}}
   {{range .}}
     <div class="card">
       <strong>{{.Repository.FullName}}</strong><br/>
-      {{.Subject.Title}} ({{.Subject.Type}}) — {{.Reason}}
+      {{.Subject.Title}} ({{.Subject.Type}}) — {{.Reason}}<br/>
+      <a href="{{.Link}}" target="_blank">View on GitHub</a>
     </div>
   {{else}}
     <p>No notifications found.</p>
